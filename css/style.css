@@ -12,6 +12,9 @@ img {
 li {
     list-style-type: none;
 }
+body {
+    font-family: 'Roboto', sans-serif;
+}
 
 /* Wrapper */
 .wrapper {
@@ -21,7 +24,7 @@ li {
 }
 
 .container {
-    width: 1000px;
+    width: 1200px;
     height: 600px;
     margin: 0 auto;
     display: flex;
@@ -103,21 +106,38 @@ li {
 /* Sezione trova chat */
 .search-chat {
     height: 40px;
-    background-color: #F9F9F9;
-    line-height: 40px;
+    background-color: gray;
     padding: 0 10px;
+    display: flex;
+    align-items: center;
 }
 
-#search {
-    width: 100%;
+.search {
+    display: flex;
+    align-items: center;
+    background-color: white;
     height: 30px;
+    width: 400px;
+    padding: 0 20px;
+}
+
+.search input {
+    width: 100%;
+    height: 20px;
     border: 1px solid gray;
+    border: none;
+    margin-left: 10px;
+}
+
+.search a {
+    color: #009688;
 }
 
 /* Sezione utenti */
 
 .user-list {
-    overflow-y: auto;
+    overflow-y: scroll;
+    height: calc(600px - 160px);
 }
     
 .user-list img  {
@@ -129,6 +149,8 @@ li {
     display: flex;
     margin-bottom: 10px;
     border-bottom: 1px solid lightgray;
+    padding: 5px;
+    margin-bottom: 5px;
 }
 
 .name {
@@ -143,7 +165,7 @@ li {
 .data {
     font-size: .7rem;
     color: gray;
-    margin-left: 100px;
+    margin-left: 110px;
 }
 
 /* LARGE CONTAINER */
@@ -164,6 +186,7 @@ li {
 .user-chat img {
     width: 40px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .user-chat-name {
@@ -176,18 +199,64 @@ li {
 }
 
 .user-icon i {
-    margin-left: 7px;
+    margin-left: 15px;
     color: gray;
 }
 /* Main */
 .main {
     height: calc(100% - 100px);
     width: 100%;
-    background-image: url();
+    background-image: url(../img/mine.jpg);
+    overflow-y: scroll;
+}
+
+.main-message {
+    padding: 5px 40px;
+    display: flex;
+    justify-content: end;
+} 
+
+.main-chat {
+    background-color: #D5F9BA;
+    width: 230px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.answer-message {
+    padding: 5px 40px;
+}
+
+.answer-chat {
+    background-color: white;
+    width: 130px;
+    border-radius: 20px;
+    padding: 10px;
+
 }
 
 /* FOOTER */
 .footer {
     height: 50px;
     background-color: #EAEAEA;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+
+
+.footer-input {
+    width: 80%;
+    height: 30px;
+    padding: 0 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.footer a {
+    margin-left: 7px;
+    color: gray;
+    font-size: 1.3rem;
 }

@@ -16,6 +16,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="app">
@@ -56,26 +60,29 @@
               <!-- /sezione notifiche -->
               <!-- Sezione trova chat -->
               <div class="search-chat">
-                <input
-                  type="text"
-                  id="search"
-                  placeholder="Cerca o inizia nuova chat "
-                />
+                <div class="search">
+                    <a href="">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </a>
+                    <input
+                      type="text"
+                      placeholder="Cerca o inizia nuova chat "
+                    />
+                </div>
               </div>
               <!-- /Sezione trova chat -->
               <!-- Sezione utenti -->
-              <div class="scroll">
-                  <ul class="user-list">
-                      <li class="message" v-for="item in contacts">
-                          <img :src="item.avatar" alt="" />
-                          <div class="name">
-                              <div>{{ item.name }}</div>
-                              <p>Ultimo messaggio inviato</p>
-                            </div>
-                            <div class="data">12.00</div>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="user-list">
+                  <li class="message" v-for="item in contacts">
+                    <img :src="item.avatar" alt="" />
+                    <div class="name">
+                      <div>{{ item.name }}</div>
+                      <p>Ultimo messaggio inviato</p>
+                    </div>
+                    <div class="data">12.00</div>
+                  </li>
+                </ul>
+    
 
               <!-- /Sezione utenti -->
             </main>
@@ -85,38 +92,60 @@
           <!-- Header large container -->
           <div class="large-container">
             <header class="header-large">
-                <div class="user-chat">
-                    <img src="img/avatar_1.jpg" alt="">
-                    <div class="user-chat-name">
-                        <div>Michele</div>
-                        <p>Ultimo accesso oggi alle 12:00</p>
-                    </div>
+              <div class="user-chat">
+                <img src="img/avatar_1.jpg" alt="" />
+                <div class="user-chat-name">
+                  <div>Michele</div>
+                  <p>Ultimo accesso oggi alle 12:00</p>
                 </div>
-                <div class="user-icon">
-                    <a href="">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </a>
-                    <a href="">
-                        <i class="fa-solid fa-paperclip"></i>
-                    </a>
-                    <a href="">
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                    </a>
-                </div>
+              </div>
+              <div class="user-icon">
+                <a href="">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+                <a href="">
+                  <i class="fa-solid fa-paperclip"></i>
+                </a>
+                <a href="">
+                  <i class="fa-solid fa-ellipsis-vertical"></i>
+                </a>
+              </div>
             </header>
             <!-- /Header large container -->
             <!-- Main large container  -->
             <main class="main">
-
+                <div class="main-message">
+                    <div class="main-chat">Hai portato a spasso il cane ?</div>
+                </div>
+                <div class="main-message">
+                    <div class="main-chat">Hai portato a spasso il cane ?</div>
+                </div>
+                <div class="answer-message">
+                    <div class="answer-chat">Fatto tutto</div>
+                </div>
             </main>
             <!-- Main large container -->
             <!-- FOOTER -->
-            <footer class="footer"></footer>
+            <footer class="footer">
+              <div>
+                <a href="">
+                  <i class="fa-regular fa-face-smile"></i>
+                </a>
+              </div>
+              <input
+                type="text"
+                class="footer-input"
+                placeholder="Scrivi un messaggio"
+              />
+              <div>
+                <a href="">
+                  <i class="fa-solid fa-microphone"></i>
+                </a>
+              </div>
+            </footer>
             <!-- FOOTER -->
 
-          <!-- /LARGE CONTAINER -->
-
-
+            <!-- /LARGE CONTAINER -->
           </div>
         </div>
       </div>
