@@ -67,6 +67,7 @@
                     <input
                       type="text"
                       placeholder="Cerca o inizia nuova chat "
+                      v.model="userSearch"
                     />
                 </div>
               </div>
@@ -114,14 +115,11 @@
             <!-- /Header large container -->
             <!-- Main large container  -->
             <main class="main">
-                <div class="main-message" v-for="check in contacts.messages">
+                <div class="main-message" v-for="check in contacts[activeContact].messages">
                     <div class="main-chat">{{ check.message }}</div>
                 </div>
-                <div class="main-message">
-                    <div class="main-chat">Hai portato a spasso il cane ?</div>
-                </div>
-                <div class="answer-message">
-                    <div class="answer-chat">Fatto tutto</div>
+                <div class="answer-message" v-for="answer in contacts[activeContact].messages">
+                    <div class="answer-chat">{{ answer.message}}</div>
                 </div>
             </main>
             <!-- Main large container -->
@@ -136,6 +134,8 @@
                 type="text"
                 class="footer-input"
                 placeholder="Scrivi un messaggio"
+                v-model="userMessage"
+                @keyup.enter="messageSend(index)"
               />
               <div>
                 <a href="">

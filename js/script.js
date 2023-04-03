@@ -4,6 +4,8 @@ createApp ({
     data() {
         return {
             activeContact: 0,
+            userSearch: "",
+            userMessage: "",
             contacts: [
                 {
                     name: 'Michele',
@@ -173,6 +175,15 @@ createApp ({
     methods: {
         clickedUser(indexUser) {
             this.activeContact = indexUser
+        },
+        messageSend (currentIndex) {
+            const newMessage = {
+                date: '10/01/2020 15:51:00',
+                message: this.userMessage,
+                status: 'sent'
+            }
+
+            this.contacts[currentIndex].messages.push(newMessage)
         }
     }
 }).mount('#app')
