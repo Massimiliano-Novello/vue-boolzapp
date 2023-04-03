@@ -73,8 +73,8 @@
               <!-- /Sezione trova chat -->
               <!-- Sezione utenti -->
                 <ul class="user-list">
-                  <li class="message" v-for="item in contacts">
-                    <img :src="item.avatar" alt="" />
+                  <li class="message" v-for="(item, index) in contacts" @click="clickedUser(index)">
+                    <img :src="`img/avatar${item.avatar}.jpg`" alt="" />
                     <div class="name">
                       <div>{{ item.name }}</div>
                       <p>Ultimo messaggio inviato</p>
@@ -93,9 +93,9 @@
           <div class="large-container">
             <header class="header-large">
               <div class="user-chat">
-                <img src="img/avatar_1.jpg" alt="" />
+                <img :src="`img/avatar${contacts[activeContact].avatar}.jpg`" alt="" />
                 <div class="user-chat-name">
-                  <div>Michele</div>
+                  <div>{{ contacts[activeContact].name }}</div>
                   <p>Ultimo accesso oggi alle 12:00</p>
                 </div>
               </div>
@@ -114,8 +114,8 @@
             <!-- /Header large container -->
             <!-- Main large container  -->
             <main class="main">
-                <div class="main-message">
-                    <div class="main-chat">Hai portato a spasso il cane ?</div>
+                <div class="main-message" v-for="check in contacts.messages">
+                    <div class="main-chat">{{ check.message }}</div>
                 </div>
                 <div class="main-message">
                     <div class="main-chat">Hai portato a spasso il cane ?</div>

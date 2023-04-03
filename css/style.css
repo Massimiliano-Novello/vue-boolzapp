@@ -151,6 +151,7 @@ body {
     border-bottom: 1px solid lightgray;
     padding: 5px;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 
 .name {
