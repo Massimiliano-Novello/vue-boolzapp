@@ -176,14 +176,37 @@ createApp ({
         clickedUser(indexUser) {
             this.activeContact = indexUser
         },
-        messageSend (currentIndex) {
+        messageSend (activeContact) {
             const newMessage = {
                 date: '10/01/2020 15:51:00',
                 message: this.userMessage,
                 status: 'sent'
+            };
+            this.contacts[activeContact].messages.push(newMessage);
+            this.userMessage = "";
+
+            const answer = {
+                date: '10/01/2020 15:51:00',
+                message: 'Va bene',
+                status: 'received'
             }
 
-            this.contacts[currentIndex].messages.push(newMessage)
-        }
+            this.contacts[activeContact].messages.push(answer)
+
+            setTimeout = (() => {
+                answer(this.contacts)
+            }, 1000)
+        },
+        // chat () {
+        //     this.contacts.forEach(item => {
+        //         if (item.name.toLowerCase().includes(this.userSearch).toLowerCase()) {
+        //             item.visible = true;
+        //         } else {
+        //             item.visible = false;
+        //         }
+        //     });
+        // },
+            
     }
+
 }).mount('#app')

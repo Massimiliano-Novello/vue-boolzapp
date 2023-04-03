@@ -214,7 +214,7 @@ body {
 .main-message {
     padding: 5px 40px;
     display: flex;
-    justify-content: end;
+    flex-direction: column;
 } 
 
 .main-chat {
@@ -222,10 +222,12 @@ body {
     width: 230px;
     border-radius: 20px;
     padding: 10px;
+    align-self: end;
 }
 
 .answer-message {
     padding: 5px 40px;
+    align-self: stretch;
 }
 
 .answer-chat {
@@ -233,7 +235,7 @@ body {
     width: 130px;
     border-radius: 20px;
     padding: 10px;
-
+    justify-content: start;
 }
 
 /* FOOTER */
