@@ -1,7 +1,7 @@
 const { createApp } = Vue;
 
 const dt = luxon.DateTime;
-
+console.log(dt);
 
 createApp({
   data() {
@@ -181,7 +181,7 @@ createApp({
     messageSend(activeContact) {
         if (this.userMessage !== "") {
             const newMessage = {
-            date: "10/01/2020 15:51:00",
+            date: this.formateDate(),
             message: this.userMessage,
             status: "sent",
             };
@@ -190,7 +190,7 @@ createApp({
 
             setTimeout (() => {
                 const answer = {
-                    date: "10/01/2020 15:51:00",
+                    date: this.formateDate(),
                     message: "Va bene",
                     status: "received",
                     };
@@ -199,9 +199,10 @@ createApp({
             }, 1000)
         }
     },
-    formateDate (dateStr) {
-        const myDate = dt.fromFormat(dateStr, "dd/MM/yy hh/mm/ss")
-        return myDate.toLocaleString(dt.TIME_24_SIMPLE);
+    formateDate () {
+        // const myDate = dt.fromFormat(dateStr, "dd/MM/yy hh/mm/ss")
+        // return myDate.toLocaleString(dt.TIME_24_SIMPLE);
+        return dt.now().setLocale('it').toLocaleString(dt.TIME_24_SIMPLE);
     },
     chat () {
         this.contacts.forEach(item => {
