@@ -68,13 +68,16 @@
                       type="text"
                       placeholder="Cerca o inizia nuova chat "
                       v-model="userSearch"
+                      @keyup="chat"
                     />
                 </div>
               </div>
               <!-- /Sezione trova chat -->
               <!-- Sezione utenti -->
                 <ul class="user-list">
-                  <li class="message" v-for="(item, index) in contacts" @click="clickedUser(index)">
+                  <li class="message" v-for="(item, index) in contacts" @click="clickedUser(index)"
+                  :class="{'active' : index === activeContact}"
+                  v-show="item.visible">
                     <img :src="`img/avatar${item.avatar}.jpg`" alt="" />
                     <div class="name">
                       <div>{{ item.name }}</div>
@@ -116,8 +119,13 @@
             <!-- Main large container  -->
             <main class="main">
                 <div class="main-message" v-for="check in contacts[activeContact].messages">
-                    <div class="main-chat" v-if="check.status === 'sent'">{{ check.message }}</div>
-                    <div class="answer-chat" v-else>{{check.message}}</div>
+                    <div class="main-chat" v-if="check.status === 'sent'">
+                      <p>{{ check.message }}</p>
+                      <span class="date">{{ formateDate(check.date) }}</span>
+                    </div>
+                    <div class="answer-chat" v-else>{{check.message}}
+                      <span class="date">{{ check.date }}</span>
+                    </div>
                 </div>
             </main>
             <!-- Main large container -->
@@ -132,7 +140,7 @@
                 type="text"
                 class="footer-input"
                 placeholder="Scrivi un messaggio"
-                v-model="userMessage"
+                v-model.trim="userMessage"
                 @keyup.enter="messageSend(activeContact)"
               />
               <div>
@@ -148,7 +156,7 @@
         </div>
       </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js"></script>
     <script src="js/script.js"></script>
   </body>
 </html>

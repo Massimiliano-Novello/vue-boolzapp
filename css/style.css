@@ -148,10 +148,13 @@ body {
 .message {
     display: flex;
     margin-bottom: 10px;
-    border-bottom: 1px solid lightgray;
     padding: 5px;
     margin-bottom: 5px;
     cursor: pointer;
+}
+
+.message.active {
+    background-color: lightblue;
 }
 
 .name {
@@ -223,6 +226,7 @@ body {
     border-radius: 20px;
     padding: 10px;
     align-self: end;
+    word-wrap: break-word;
 }
 
 .answer-message {
@@ -232,10 +236,16 @@ body {
 
 .answer-chat {
     background-color: white;
-    width: 130px;
+    width: 200px;
     border-radius: 20px;
     padding: 10px;
     justify-content: start;
+}
+
+.date {
+    font-size: .7rem;
+    display: flex;
+    justify-content: end;
 }
 
 /* FOOTER */
